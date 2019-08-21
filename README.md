@@ -36,3 +36,12 @@ When starting the application, there is a first obvious error: the results (tota
 * **2.** _Once the initial problem has been corrected, run the application several times, and identify the inconsistencies in the results of the same by seeing the ‘ranking’ shown on the console (sometimes valid results could appear, but in other cases such inconsistencies may occur). From this, identify the critical regions of the program._
 * **3.** _Use a synchronization mechanism to ensure that these critical regions only access one thread at a time. Verify the results._
 * **4.** _Implement the pause and continue functionalities. With these, when "Stop" is clicked, all the threads of the greyhounds should fall asleep, and when "Continue" is clicked they should wake up and continue with the race. Design a solution that allows you to do this using the synchronization mechanisms with the Locks primitives provided by the language (wait and notifyAll)._
+
+#
+_el problema de la aplicacion que mostraba el mensaje antes de la finalizacion de la ejecucion se daba que se mostraba debido a que los hilos no estaban bien sincronizados una vez solucionado esto la aparicion del mensaje fue al final de la ejecucion_
+#
+_las inconsistencias en el proyecto se daban debido a que el programa en algunas ejecuciones mostraba que habian menos galgos compitiendo de los 17_
+#
+_para poder implementar las funcionalidades de pausa y continuar se identifico que no era suficiente con dormir los hilos correspondientes a los galgos ya que el hilo principal igualemnte seguia ejecutandose, fue necesario agregar una variable booleana a el hilo principa y su metodo get y set, permitiendo asi realizar un llamado a esta y cambiar su valor para poder pausar el hilo principal de ejecucion._
+#
+#
