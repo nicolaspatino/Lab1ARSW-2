@@ -20,13 +20,12 @@ para dar solucion a la primer parte la idea de nuestra solucion consiste en una 
 #
 
 ### Part II
-_For this exercise, you will work with a greyhound racing simulator (folder part2), whose graphic representation corresponds to the following figure:_
+_For this exercise, you will work with a greyhound racing simulator (folder part2), whose graphic representation corresponds to the  figure in the document:_
 
- "link" 
-#
-_In the simulation, all the greyhounds have the same speed (at the programming level), so the winning greyhound will be the one that (for reasons of chance) has been most benefited by the scheduling of the processor (that is, the one with the most cycles CPU has been granted during the race). The application model is as follows:_
 
-"Link"
+_In the simulation, all the greyhounds have the same speed (at the programming level), so the winning greyhound will be the one that (for reasons of chance) has been most benefited by the scheduling of the processor (that is, the one with the most cycles CPU has been granted during the race). The application model is  in the figure of the document:_
+
+
 #
 _As you can see, greyhounds are thread objects, and their progress is displayed in the Canodromo class, which is basically a Swing form. All greyhounds (by default, there are 17 greyhounds running on a 100-meter track) share access to an object of type RegistrationLlegada. When a greyhound reaches the goal, it accesses the counter located on said object (whose initial value is 1), and takes that value as its arrival position, and then increases it by 1. The greyhound that manages to take the '1' will be the winner.
 When starting the application, there is a first obvious error: the results (total run and number of the winning greyhound) are shown before the end of the race as such. However, once this is corrected, there may be more inconsistencies caused by the presence of race conditions._
