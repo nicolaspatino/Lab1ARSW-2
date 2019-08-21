@@ -21,7 +21,7 @@ ENTER to resume their execution._
 ![](img/grafic2.jpg)
 ![](img/grafic3.jpg)
 ![](img/grafic4.jpg)
-
+![](img/grafic5.jpg)
 #
 para dar solucion a la primer parte la idea de nuestra solucion consiste en una clase "control" se encarga de crear y dividir la solucion entre los hilos requeridos que seran PrimeFinderThread, tambien alli se definiran  las funcionalidades de pausa y resume para cumplir con los requerimientos de solucion.
 #
