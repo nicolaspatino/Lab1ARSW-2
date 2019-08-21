@@ -16,7 +16,9 @@ will make up the first part of the original problem. Check the operation again, 
 started, all the threads are stopped and the number of primes ​​found so far is displayed. Then, you must wait for the user to press
 ENTER to resume their execution._
 #
-![](img/grafic1.jgp)
+
+![](img/grafic1.jpg)
+
 #
 para dar solucion a la primer parte la idea de nuestra solucion consiste en una clase "control" se encarga de crear y dividir la solucion entre los hilos requeridos que seran PrimeFinderThread, tambien alli se definiran  las funcionalidades de pausa y resume para cumplir con los requerimientos de solucion.
 #
