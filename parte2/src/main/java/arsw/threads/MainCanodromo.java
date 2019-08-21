@@ -38,6 +38,7 @@ public class MainCanodromo {
                             galgos[i] = new Galgo(can.getCarril(i), "" + i, reg);
                             //inicia los hilos
                             galgos[i].start();
+             
                         }
                          for (int i = 0; i < can.getNumCarriles(); i++) {
                             try {
