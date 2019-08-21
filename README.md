@@ -1,5 +1,14 @@
 # Lab1ARSW-2
 
+## Autores ✒️
+
+* **Nicolas Patiño** 
+* **Andres Rodriguez Del Toro** 
+
+
+
+---
+
 ## Dogs Race case 🚀
 
 ### Part I.
