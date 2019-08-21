@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JButton;
 
-public class MainCanodromo {
+public class MainCanodromo {   
 
     private static Galgo[] galgos;
 
@@ -16,6 +16,7 @@ public class MainCanodromo {
     private static RegistroLlegada reg = new RegistroLlegada();
 
     public static void main(String[] args) {
+        boolean isPause=false;
         can = new Canodromo(17, 100);
         galgos = new Galgo[can.getNumCarriles()];
         can.setVisible(true);
@@ -33,6 +34,7 @@ public class MainCanodromo {
                 ((JButton) e.getSource()).setEnabled(false);
                 new Thread() {
                     public void run() {
+                        
                         for (int i = 0; i < can.getNumCarriles(); i++) {
                             //crea los hilos 'galgos'
                             galgos[i] = new Galgo(can.getCarril(i), "" + i, reg);
@@ -47,6 +49,7 @@ public class MainCanodromo {
                                 Logger.getLogger(MainCanodromo.class.getName()).log(Level.SEVERE, null, ex);
                             }
                          }
+                        
                         can.winnerDialog(reg.getGanador(), reg.getUltimaPosicionAlcanzada() - 1);
                         System.out.println("El ganador fue:" + reg.getGanador());
                     }
@@ -60,20 +63,35 @@ public class MainCanodromo {
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Carrera pausada!");
+                 for (int i = 0; i < can.getNumCarriles(); i++) {
+                     galgos[i].doPause();
+                 }
+                
             }
         }
+                
         );
 
         can.setContinueAction(
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Carrera reanudada!");
+                synchronized(reg){
+                    reg.notifyAll();
+                }
+                for (int i = 0; i < can.getNumCarriles(); i++) {
+                    synchronized(galgos[i]){
+                        galgos[i].doPause();
+                    }
+                 }
             }
         }
         );
+        
 
+    }
+    public static RegistroLlegada getReg(){
+    	return reg;
     }
 
 }
